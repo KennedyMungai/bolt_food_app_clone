@@ -5,6 +5,6 @@
     },
   ],
   "settings": {
-    "cSpell.words": ["nativewind", "tailwindcss"],
+    "cSpell.words": ["nativewind", "Pressable", "tailwindcss"],
   },
 }
