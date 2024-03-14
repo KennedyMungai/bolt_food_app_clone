@@ -16,6 +16,35 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <Ionicons name="home" color={color} size={24} />,
         }}
       />
+      <Tabs.Screen
+        name="orders"
+        options={{
+          title: 'Orders',
+          tabBarShowLabel: false,
+          headerShown: false,
+          tabBarIcon: ({ color }) => <Ionicons name="clipboard-sharp" color={color} size={24} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarShowLabel: false,
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="person-circle-sharp" color={color} size={24} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="search"
+        options={{
+          title: 'Search',
+          tabBarShowLabel: false,
+          headerShown: false,
+          tabBarIcon: ({ color }) => <Ionicons name="search" color={color} size={24} />,
+        }}
+      />
     </Tabs>
   );
 }
