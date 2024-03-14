@@ -1,13 +1,14 @@
 import { FontAwesome } from '@expo/vector-icons';
 import React from 'react';
 import { Image, Pressable, Text, View } from 'react-native';
-import { dummyRestaurantsData } from '~/assets/data/restaurantsData';
 
 type Props = {
   restaurantData: RestaurantData;
 };
 
 const MarketCard = ({ restaurantData }: Props) => {
+    const ratingStyleColor = restaurantData.rating < 4.5 ? 'black' : '#FF8C00'
+
   return (
     <Pressable className={styles.cardContainer}>
       <View>
@@ -23,7 +24,7 @@ const MarketCard = ({ restaurantData }: Props) => {
       <View className={styles.textContainer}>
         <Text className={styles.restaurantName}>{restaurantData.name}</Text>
         <View className={styles.ratingContainer}>
-          <FontAwesome name="star" size={24} />
+          <FontAwesome name="star" size={24} color={ratingStyleColor} />
           <Text className={styles.ratingText}>{restaurantData.rating}</Text>
         </View>
       </View>
