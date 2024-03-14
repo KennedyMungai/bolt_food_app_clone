@@ -1,6 +1,8 @@
-import { FontAwesome6, MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
+import { FlatList, SafeAreaView, Text, View } from 'react-native';
+import { dummyRestaurantsData } from '~/assets/data/restaurantsData';
+import MarketCard from '~/components/market-card';
 
 const TabHomeScreen = () => {
   return (
@@ -11,6 +13,16 @@ const TabHomeScreen = () => {
           <Text className={styles.addressText}>Your Address Here</Text>
         </View>
       </View>
+
+      <FlatList
+        data={dummyRestaurantsData}
+        showsVerticalScrollIndicator={false}
+        keyExtractor={(item) => item.id.toString()}
+        ListHeaderComponent={() => (
+          <Text className={styles.cardTitle}>All Restaurants and Stores</Text>
+        )}
+        renderItem={({ item }) => <MarketCard restaurantData={item} />}
+      />
     </SafeAreaView>
   );
 };
@@ -22,4 +34,5 @@ const styles = {
   header: 'flex-row justify-between',
   addressContainer: 'flex-row items-center',
   addressText: 'ml-2',
+  cardTitle: 'font-bold text-xl text-neutral-600 mt-4 mb-2',
 };
