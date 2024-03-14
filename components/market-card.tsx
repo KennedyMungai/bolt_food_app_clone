@@ -3,27 +3,31 @@ import React from 'react';
 import { Image, Pressable, Text, View } from 'react-native';
 import { dummyRestaurantsData } from '~/assets/data/restaurantsData';
 
-const MarketCard = () => {
+type Props = {
+  restaurantData: RestaurantData;
+};
+
+const MarketCard = ({ restaurantData }: Props) => {
   return (
     <Pressable className={styles.cardContainer}>
       <View>
         <Image
-          source={{ uri: dummyRestaurantsData[0].profileImage }}
+          source={{ uri: restaurantData.profileImage }}
           className={styles.cardImage}
           resizeMode="cover"
         />
         <View className={styles.overlay}>
-          <Text className={styles.overlayText}>{dummyRestaurantsData[0].delivery} min</Text>
+          <Text className={styles.overlayText}>{restaurantData.delivery} min</Text>
         </View>
       </View>
       <View className={styles.textContainer}>
-        <Text className={styles.restaurantName}>{dummyRestaurantsData[0].name}</Text>
+        <Text className={styles.restaurantName}>{restaurantData.name}</Text>
         <View className={styles.ratingContainer}>
           <FontAwesome name="star" size={24} />
-          <Text className={styles.ratingText}>{dummyRestaurantsData[0].rating}</Text>
+          <Text className={styles.ratingText}>{restaurantData.rating}</Text>
         </View>
       </View>
-      <Text className={styles.priceText}>$ {dummyRestaurantsData[0].price}</Text>
+      <Text className={styles.priceText}>$ {restaurantData.price}</Text>
     </Pressable>
   );
 };
