@@ -1,17 +1,13 @@
 import { useLocalSearchParams } from 'expo-router';
 import React from 'react';
-import { Text, View } from 'react-native';
+import RestaurantDetails from '~/components/restaurant-details';
 
 const IndividualRestaurantPage = () => {
   const { restaurantId } = useLocalSearchParams();
 
   console.log(restaurantId);
 
-  return (
-    <View>
-      <Text>IndividualRestaurantPage</Text>
-    </View>
-  );
+  return <RestaurantDetails id={restaurantId as string} />;
 };
 
 export default IndividualRestaurantPage;
